@@ -16,8 +16,20 @@ struct node * insert_front(struct node *n, char *s, char *a){
   return new;
 }
 
-struct node * insert_ordered(struct node *n, char *song, char *artist){
-  
+struct node * insert_ordered(struct node *n, char *s, char *a){
+  struct node * before;
+  while(strcmp(n->artist, a) < 0 &&
+	strcmp(n->song, s) < 0){
+    before = n;
+    n = n->next;
+  }
+  struct node * insert = (struct node *)malloc(sizeof(struct node));
+  insert->song = s;
+  insert->artist = a;
+
+  before->next = insert;
+  insert->next = n;
+  return insert;
 }
 
 // print entire list
