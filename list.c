@@ -1,8 +1,8 @@
-struct node {
-  char song [256];
-  char artist[256];
-  struct node *next;
-};
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "list.h"
 
 // insert song_nodes in the front
 struct node * insert_front(struct node *n, char *song, char *artist);

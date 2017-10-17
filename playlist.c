@@ -1,3 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "list.h"
+#include "playlist.h"
+
 // add songs
 void add(struct node *library[26], char *song, char *artist);
 
