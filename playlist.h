@@ -1,11 +1,8 @@
 // add songs
-void add(struct node *library[26], char *song, char *artist);
+void add(struct node *library[26], char *s, char *a);
 
 // search for a song
-struct node * search_song(struct node *library[26], char *artist, char *song);
-
-// search for a song
-struct node * search_song(struct node *library[26], char *song);
+struct node * search_song(struct node *library[26], char *a, char *s);
 
 // search for an artist
 struct node * search_artist(struct node *library[26], char *a);
@@ -14,7 +11,7 @@ struct node * search_artist(struct node *library[26], char *a);
 void print_letter(struct node *library[26], char l);
 
 // print out all songs of certain artist
-void print_artist(struct node *library[26], char *artist);
+void print_artist(struct node *library[26], char *a);
 
 // print entire library
 void print_all(struct node *library[26]);
@@ -23,7 +20,7 @@ void print_all(struct node *library[26]);
 void shuffle(struct node *library[26]);
 
 // delete a song
-struct node * delete_song(struct node *library[26], char *song);
+struct node * delete_song(struct node *library[26], char *s);
 
 // delete all
-struct node * delete_all(struct node * arr[26]);
+struct node * delete_all(struct node *library[26]);

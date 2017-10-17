@@ -45,10 +45,23 @@ struct node * find_artist(struct node *n, char *a){
 }
 
 // pointer to random element in list
-struct node * random(struct node *head);
+struct node * random(struct node *head){
+	struct node *curr;	
+	srand(time(NULL));
+	int i = rand();
+	while (i > 0) {
+		curr = head->next;		
+		i--;	
+	}
+	return curr;
+}
 
 // remove single node from the list
 struct node * remove(struct node *n, char *song){
+	while(n->song != s){
+    n = n->next;
+  }
+	
 }
 
 // free entire list
