@@ -2,10 +2,13 @@
 void add(struct node *library[26], char *song, char *artist);
 
 // search for a song
-struct node * f_song(struct node *library[26], char *song);
+struct node * search_song(struct node *library[26], char *artist, char *song);
+
+// search for a song
+struct node * search_song(struct node *library[26], char *song);
 
 // search for an artist
-struct node * f_artist(struct node *library[26], char *a);
+struct node * search_artist(struct node *library[26], char *a);
 
 // print out all entries under certain letter
 void print_letter(struct node *library[26], char l);
