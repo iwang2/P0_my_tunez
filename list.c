@@ -8,8 +8,8 @@
 struct node * insert_front(struct node *n, char *s, char *a){
   struct node * new = (struct node *)malloc(sizeof(struct node));
 
-  new->song = s;
-  new->artist = a;
+  strcpy(new->song, s);
+  strcpy(new->artist, a);
   new->next = n;
 
   return new;
@@ -17,20 +17,23 @@ struct node * insert_front(struct node *n, char *s, char *a){
 
 // insert song node in correct order
 struct node * insert_ordered(struct node *n, char *s, char *a){
-	if (!n) {
-		return insert_front(n, s, a);
-	}
-  struct node * before;
-  while(strcmp(n->artist, a) < 0 && strcmp(n->song, s) < 0){
+  /*
+  if (!n) {
+    return insert_front(n, s, a);
+  }
+  */
+  struct node * before = (struct node *)malloc(sizeof(struct node));
+  while(strcmp(a, n->artist) > 0 && strcmp(s, n->song) > 0){
     before = n;
     n = n->next;
   }
   struct node * insert = (struct node *)malloc(sizeof(struct node));
-  insert->song = s;
-  insert->artist = a;
+  strcpy(insert->song, s);
+  strcpy(insert->artist, a);
 
   before->next = insert;
   insert->next = n;
+  
   return insert;
 }
 
@@ -40,6 +43,7 @@ void print_list(struct node *head){
     printf("%s: %s\n", head->artist, head->song);
     head = head->next;
   }
+  printf("\n");
 }
 
 // find and return pointer to an individual song
@@ -68,6 +72,8 @@ int length(struct node *n) {
   return len;
 }
 
+/*
+
 // pointer to random element in list
 struct node * random(struct node *head){
 	int i = rand() * lenth(head);
@@ -88,6 +94,7 @@ void remove(struct node *n, char *s){
     temp -> next = n -> next;
     free(n);  
 }
+*/
 
 // free entire list
 void free_list(struct node *n){

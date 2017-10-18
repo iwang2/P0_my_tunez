@@ -1,5 +1,5 @@
 struct node {
-  char song [256];
+  char song[256];
   char artist[256];
   struct node *next;
 };
@@ -12,6 +12,7 @@ struct node * insert_ordered(struct node *n, char *s, char *a);
 // print entire list
 void print_list(struct node *head);
 
+/*
 // find and return pointer to an individual song
 struct node * find_song(struct node *n, char *s);
 
@@ -26,6 +27,7 @@ struct node * random(struct node *head);
 
 // remove single node from the list
 void remove(struct node *n, char *s);
+*/
 
 // free entire list
 void free_list(struct node *n);

@@ -1,15 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-struct node { int i; struct node * next; };
-
-struct node * arr[26];
+#include "list.h"
 
 int main(){
-  int a;
-  for(a = 0; a < 26; a++){
-    arr[a] = (struct node *)malloc(sizeof(struct node));
-    arr[a]->i = a; 
-  }
-  return 0;
+  struct node * head = (struct node *)malloc(sizeof(struct node));
+  strcpy(head->song, "sweet caroline");
+  strcpy(head->artist, "neil diamond");
+
+  print_list(head);
+
+  head = insert_front(head, "chandelier", "sia");
+  print_list(head);
+  /*
+  //insert_ordered does not insert in the correct order
+  insert_ordered(head, "chandelier", "sia");
+
+  print_list(head);
+  */
 }

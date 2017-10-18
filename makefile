@@ -1,13 +1,16 @@
-all: main.o
-	gcc -o main main.o
+all: list.o main.o
+	gcc -o things list.o main.o
 
-main.o: main.c
+list.o: list.c list.h
+	gcc -c list.c
+
+main.o: main.c list.h
 	gcc -c main.c
 
 clean:
-	rm main
+	rm things
 	rm *.o
 	rm *~
 
 run: all
-	./main
+	./things
