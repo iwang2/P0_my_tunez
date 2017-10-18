@@ -18,11 +18,14 @@ struct node * find_song(struct node *n, char *s);
 // find and return pointer to first song of an artist
 struct node * find_artist(struct node *n, char *a);
 
+// length of linked list
+int length(struct node *n);
+
 // pointer to random element in list
 struct node * random(struct node *head);
 
 // remove single node from the list
-struct node * remove(struct node *n, char *s);
+void remove(struct node *n, char *s);
 
 // free entire list
-struct node * free_list(struct node *n);
+void free_list(struct node *n);
