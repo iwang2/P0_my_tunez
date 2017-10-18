@@ -17,11 +17,6 @@ struct node * insert_front(struct node *n, char *s, char *a){
 
 // insert song node in correct order
 struct node * insert_ordered(struct node *n, char *s, char *a){
-  /*
-  if (!n) {
-    return insert_front(n, s, a);
-  }
-  */
   struct node * before = (struct node *)malloc(sizeof(struct node));
   while(strcmp(a, n->artist) > 0 && strcmp(s, n->song) > 0){
     before = n;
