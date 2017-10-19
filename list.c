@@ -23,6 +23,10 @@ struct node * insert_ordered(struct node *n, char *s, char *a){
   struct node * insert = (struct node *)malloc(sizeof(struct node));
   strcpy(insert->song, s);
   strcpy(insert->artist, a);
+
+  if(!n){
+    return insert;
+  }
   
   if(strcmp(a, n->artist) < 0
      ||
