@@ -28,6 +28,9 @@ int main(){
   struct node * random = random_node(head);
   print_list(random);
 
+  head = remove_node(head, random);
+  print_list(head);
+
   /*
   free_list(head);
   print_list(head);

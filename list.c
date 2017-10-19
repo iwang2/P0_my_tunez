@@ -95,18 +95,16 @@ struct node * random_node(struct node *head){
   return head;
 }
 
-/*
 // remove single node from the list
-void remove(struct node *n, char *s){
-    struct node * temp = n;
-    while (n && strcmp(n->song, s)){ 
-        temp = n;
-        n = n->next;
-    }
-    temp -> next = n -> next;
-    free(n);  
+struct node * remove_node(struct node *head, struct node *n){
+  struct node *temp = head;
+  if(head == n){
+    head = head->next;
+    free(temp);
+    return head;
+  }
+  
 }
-*/
 
 // free entire list
 void free_list(struct node *n){

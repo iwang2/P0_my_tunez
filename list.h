@@ -24,10 +24,8 @@ int length(struct node *n);
 // pointer to random element in list
 struct node * random_node(struct node *head);
 
-/*
 // remove single node from the list
-void remove(struct node *n, char *s);
-*/
+struct node * remove_node(struct node *head, struct node *n);
 
 // free entire list
 void free_list(struct node *n);
