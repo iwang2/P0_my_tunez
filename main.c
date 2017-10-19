@@ -11,12 +11,11 @@ int main(){
 
   print_list(head);
 
-  head = insert_front(head, "chandelier", "sia");
+  head = insert_ordered(head, "chandelier", "sia");
   print_list(head);
-  /*
+
   //insert_ordered does not insert in the correct order
-  insert_ordered(head, "chandelier", "sia");
+  head = insert_ordered(head, "rolling in the deep", "adele");
 
   print_list(head);
-  */
 }

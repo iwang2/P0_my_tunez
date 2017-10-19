@@ -16,20 +16,31 @@ struct node * insert_front(struct node *n, char *s, char *a){
 }
 
 // insert song node in correct order
-struct node * insert_ordered(struct node *n, char *s, char *a){
-  struct node * before = (struct node *)malloc(sizeof(struct node));
-  while(strcmp(a, n->artist) > 0 && strcmp(s, n->song) > 0){
-    before = n;
-    n = n->next;
-  }
+// returns head node
+struct node * insert_ordered(struct node *n, char *s, char *a){  
   struct node * insert = (struct node *)malloc(sizeof(struct node));
   strcpy(insert->song, s);
   strcpy(insert->artist, a);
 
+  if(strcmp(a, n->artist) < 0
+     ||
+     (strcmp(a, n->artist) == 0 && strcmp(s, n->song) < 0)){
+    insert->next = n;
+    return insert;
+  }
+  
+  struct node * head = n;
+  struct node * before = (struct node *)malloc(sizeof(struct node));
+  
+  while(n && strcmp(a, n->artist) > 0 && strcmp(s, n->song) > 0){
+    before = n;
+    n = n->next;
+  }
+
   before->next = insert;
   insert->next = n;
   
-  return insert;
+  return head;
 }
 
 // print entire list
