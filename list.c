@@ -17,11 +17,12 @@ struct node * insert_front(struct node *n, char *s, char *a){
 
 // insert song node in correct order
 // returns head node
-struct node * insert_ordered(struct node *n, char *s, char *a){  
+struct node * insert_ordered(struct node *n, char *s, char *a){
+  
   struct node * insert = (struct node *)malloc(sizeof(struct node));
   strcpy(insert->song, s);
   strcpy(insert->artist, a);
-
+  
   if(strcmp(a, n->artist) < 0
      ||
      (strcmp(a, n->artist) == 0 && strcmp(s, n->song) < 0)){
@@ -55,7 +56,7 @@ void print_list(struct node *head){
 
 // find and return pointer to an individual song
 struct node * find_song(struct node *n, char *s, char *a){
-  while(n && strcmp(n->artist, a) && strcmp(n->song, s)){
+  while(n && (strcmp(n->artist, a) != 0 || strcmp(n->song, s) != 0)){
     n = n->next;
   }
   return n;
@@ -63,7 +64,7 @@ struct node * find_song(struct node *n, char *s, char *a){
 
 // find and return pointer to first song of an artist
 struct node * find_artist(struct node *n, char *a){
-  while(n && strcmp(n->artist, a)){
+  while(n && strcmp(n->artist, a) != 0){
     n = n->next;
   }
   return n;
