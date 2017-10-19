@@ -7,25 +7,26 @@
 
 // add songs
 void add(struct node *library[26], char *s, char *a){
- int index = *artist - 97;
- library[index] = insert_ordered(library[index], s, a);
+  int index = a[0] - 'a';
+  library[index] = insert_ordered(library[index], s, a);
 }
 
 // search for a song
 struct node * search_song(struct node *library[26], char *a, char *s){
-	int i = 0;
-	while (find_song(library[i], s, a) == NULL) {
-		i++;
-	}
-	return find_song(library[i], s);
+  int i = 0;
+  while (!find_song(library[i], s, a)) {
+    i++;
+  }
+  return find_song(library[i], s, a);
 }
 
 // search for an artist
 struct node * search_artist(struct node *library[26], char *a){
-	int index = *artist - 97;
-	return find_artist(librar[index], a);
+  int index = a[0] - 'a';
+  return find_artist(library[index], a);
 }
 
+/*
 // print out all entries under certain letter
 void print_letter(struct node *library[26], char l){
 	int index = l - 97;
@@ -40,17 +41,18 @@ void print_artist(struct node *library[26], char *a){
 		curr = curr -> next;
 	}
 }
-
+*/
 // print entire library
 void print_all(struct node *library[26]){
-	int i;
-	for (i = 0; i < 26; i++) {
-		if (library[i]) {
-			print_list(library[i]);
-		}
-	}
+  int i;
+  for (i = 0; i < 26; i++) {
+    printf("library[%d]:\n", i);
+    //if (library[i]) {
+      print_list(library[i]);
+      //}
+  }
 }
-
+/*
 // print out series of randomly chosen songs
 void shuffle(struct node *library[26]){
 	
@@ -72,3 +74,4 @@ struct node * delete_all(struct node * library[26]){
 		free_list(library[i]);
 	}
 }
+*/
