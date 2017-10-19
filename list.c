@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "list.h"
 
@@ -80,18 +81,21 @@ int length(struct node *n) {
   return len;
 }
 
-/*
-
 // pointer to random element in list
-struct node * random(struct node *head){
-	int i = rand() * lenth(head);
-	while (i != 0) {
-		head = head->next;		
-		i--;	
-	}
-	return head;
+struct node * random_node(struct node *head){
+  srand(time(NULL));
+  /*
+  int i = rand() * length(head);
+  */
+  int i = rand() / (RAND_MAX / length(head) + 1);
+  while (i) {
+    head = head->next;
+    i--;
+  }
+  return head;
 }
 
+/*
 // remove single node from the list
 void remove(struct node *n, char *s){
     struct node * temp = n;

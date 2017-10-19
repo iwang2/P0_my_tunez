@@ -12,7 +12,6 @@ struct node * insert_ordered(struct node *n, char *s, char *a);
 // print entire list
 void print_list(struct node *head);
 
-/*
 // find and return pointer to an individual song
 struct node * find_song(struct node *n, char *s, char *a);
 
@@ -23,8 +22,9 @@ struct node * find_artist(struct node *n, char *a);
 int length(struct node *n);
 
 // pointer to random element in list
-struct node * random(struct node *head);
+struct node * random_node(struct node *head);
 
+/*
 // remove single node from the list
 void remove(struct node *n, char *s);
 */
