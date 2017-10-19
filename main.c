@@ -13,6 +13,9 @@ int main(){
 
   head = insert_ordered(head, "chandelier", "sia");
   print_list(head);
+  
+  head = insert_ordered(head, "hallelujah", "pentatonix");
+  print_list(head);
 
   head = insert_front(head, "rolling in the deep", "adele");
   print_list(head);
@@ -23,7 +26,7 @@ int main(){
   find = find_artist(head, "neil diamond");
   print_list(find);
 
-  printf("length of list: %d\n", length(head));
+  printf("length of list: %d\n\n", length(head));
   
   struct node * random = random_node(head);
   print_list(random);
