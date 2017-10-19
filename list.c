@@ -97,13 +97,26 @@ struct node * random_node(struct node *head){
 
 // remove single node from the list
 struct node * remove_node(struct node *head, struct node *n){
-  struct node *temp = head;
+  struct node *temp;
   if(head == n){
-    head = head->next;
-    free(temp);
-    return head;
+    temp = head->next;
+    free(head);
+    return temp;
   }
   
+  struct node *hold = head;
+  while(head != n){
+    temp = head;
+    head = head->next;
+  }
+  if(!n->next){
+    temp->next = NULL;
+    free(n);
+  }else{
+    temp->next = n->next;
+    free(n);
+  }
+  return hold;
 }
 
 // free entire list
