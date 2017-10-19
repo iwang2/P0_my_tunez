@@ -32,7 +32,8 @@ struct node * insert_ordered(struct node *n, char *s, char *a){
   struct node * head = n;
   struct node * before = (struct node *)malloc(sizeof(struct node));
   
-  while(n && strcmp(a, n->artist) > 0 && strcmp(s, n->song) > 0){
+  while(n && (strcmp(a, n->artist) > 0 ||
+	      (strcmp(a, n->artist) == 0 && strcmp(s, n->song) > 0))){
     before = n;
     n = n->next;
   }
