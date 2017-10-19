@@ -26,28 +26,29 @@ struct node * search_artist(struct node *library[26], char *a){
   return find_artist(library[index], a);
 }
 
-/*
 // print out all entries under certain letter
 void print_letter(struct node *library[26], char l){
-	int index = l - 97;
-	print_list(library[index]);
+  int index = l - 'a';
+  print_list(library[index]);
 }
 
 // print out all songs of certain artist
 void print_artist(struct node *library[26], char *a){
-	struct node * curr = find_artist(library, a);
-	while (curr && !(strcmp(curr -> artist, a))) {
-		printf("%s: %s\n", curr->artist, curr->song);
-		curr = curr -> next;
-	}
+  print_list(search_artist(library, a));
+  /*
+  struct node * curr = find_artist(library, a);
+  while (curr && !(strcmp(curr -> artist, a))) {
+    printf("%s: %s\n", curr->artist, curr->song);
+    curr = curr -> next;
+  }
+  */
 }
-*/
+
 // print entire library
 void print_all(struct node * library[26]){
-  int i;
-  for (i = 0; i < 26; i++) {
+  for (int i = 0; i < 26; i++) {
     if (library[i]) {
-      printf("library[%d]:\n", i);
+      printf("library[%d]\n", i);
       print_list(library[i]);
     }
   }

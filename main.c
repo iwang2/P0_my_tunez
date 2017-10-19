@@ -56,12 +56,13 @@ int main(){
   //print_all(thing);
   //printf("printed intitialized array\n");
   int i;
+  
   for(i = 0; i < 26; i++){
     //thing[i] = (struct node *)malloc(sizeof(struct node));
     thing[i] = NULL;
   }
   
-  printf("add------------------------------------\n");
+  printf("add-----------------------------------------------\n");
   printf("-->  adding rolling in the deep, galway girl, hello, just give me a reason, perfect, hallelujah\n");
   add(thing, "rolling in the deep", "adele");
   add(thing, "galway girl", "ed sheeran");
@@ -71,8 +72,20 @@ int main(){
   add(thing, "hallelujah", "pentatonix");
   print_all(thing);
   
-  printf("search song------------------------------------\n");
-  printf("--> galway girl by ed sheeran \n");
+  printf("search song---------------------------------------\n");
+  printf("-->  galway girl by ed sheeran \n");
   struct node * search = search_song(thing, "ed sheeran", "galway girl");
   print_list(search);
+
+  printf("search_artist-------------------------------------\n");
+  printf("-->  searching for pentatonix\n");
+  print_list(search_artist(thing, "pentatonix"));
+  
+  printf("print_letter--------------------------------------\n");
+  printf("-->  printing entries under p\n");
+  print_letter(thing, 'p');
+
+  printf("print_artist--------------------------------------\n");
+  printf("-->  printing out all of adele's songs\n");
+  print_artist(thing, "adele");
 }
