@@ -10,7 +10,7 @@ int main(){
   strcpy(head->song, "sweet caroline");
   strcpy(head->artist, "neil diamond");
 
-  printf("original node\n");
+  printf("\n\noriginal node\n");
   print_list(head);
 
   printf("TESTING FOR LIST FUNCTIONS========================\n\n");
@@ -18,8 +18,6 @@ int main(){
   printf("insert_ordered------------------------------------\n");
   printf("-->  inserting chandelier and hallelujah\n");
   head = insert_ordered(head, "chandelier", "sia");
-  print_list(head);
-  
   head = insert_ordered(head, "hallelujah", "pentatonix");
   print_list(head);
 
