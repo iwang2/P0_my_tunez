@@ -14,7 +14,7 @@ void print_list(struct node *head);
 
 /*
 // find and return pointer to an individual song
-struct node * find_song(struct node *n, char *s);
+struct node * find_song(struct node *n, char *s, char *a);
 
 // find and return pointer to first song of an artist
 struct node * find_artist(struct node *n, char *a);

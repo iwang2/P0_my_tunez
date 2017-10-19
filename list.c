@@ -53,8 +53,8 @@ void print_list(struct node *head){
 }
 
 // find and return pointer to an individual song
-struct node * find_song(struct node *n, char *s){
-  while(n && strcmp(n->song, s)){
+struct node * find_song(struct node *n, char *s, char *a){
+  while(n && strcmp(n->artist, a) && strcmp(n->song, s)){
     n = n->next;
   }
   return n;
