@@ -6,7 +6,7 @@
 #include "playlist.h"
 
 // add songs
-void add(struct node *library[26], char *s, char *a){
+void add(struct node * library[26], char *s, char *a){
   int index = a[0] - 'a';
   library[index] = insert_ordered(library[index], s, a);
 }
@@ -43,13 +43,13 @@ void print_artist(struct node *library[26], char *a){
 }
 */
 // print entire library
-void print_all(struct node *library[26]){
+void print_all(struct node * library[26]){
   int i;
   for (i = 0; i < 26; i++) {
-    printf("library[%d]:\n", i);
-    //if (library[i]) {
+    if (library[i]) {
+      printf("library[%d]:\n", i);
       print_list(library[i]);
-      //}
+    }
   }
 }
 /*

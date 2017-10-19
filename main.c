@@ -48,17 +48,17 @@ int main(){
   head = remove_node(head, random);
   print_list(head);
 
-  /*
   free_list(head);
-  print_list(head);
-  */
 
   printf("\nTESTING PLAYLIST FUNCTIONS=======================\n\n");
 
   struct node * thing[26];
+  //print_all(thing);
+  //printf("printed intitialized array\n");
   int i;
   for(i = 0; i < 26; i++){
-    thing[i] = (struct node *)malloc(sizeof(struct node));
+    //thing[i] = (struct node *)malloc(sizeof(struct node));
+    thing[i] = NULL;
   }
   add(thing, "rolling in the deep", "adele");
   print_all(thing);

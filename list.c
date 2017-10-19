@@ -23,6 +23,7 @@ struct node * insert_ordered(struct node *n, char *s, char *a){
   struct node * insert = (struct node *)malloc(sizeof(struct node));
   strcpy(insert->song, s);
   strcpy(insert->artist, a);
+  insert->next = NULL;
 
   if(!n){
     return insert;
@@ -88,9 +89,6 @@ int length(struct node *n) {
 // pointer to random element in list
 struct node * random_node(struct node *head){
   srand(time(NULL));
-  /*
-  int i = rand() * length(head);
-  */
   int i = rand() / (RAND_MAX / length(head) + 1);
   while (i) {
     head = head->next;
@@ -101,34 +99,32 @@ struct node * random_node(struct node *head){
 
 // remove single node from the list
 struct node * remove_node(struct node *head, struct node *n){
-  struct node *temp;
   if(head == n){
-    temp = head->next;
-    free(head);
-    return temp;
+    head = head->next;
+    free(n);
+    return head;
   }
   
   struct node *hold = head;
-  while(head != n){
-    temp = head;
-    head = head->next;
+  while(hold->next != n){
+    hold = hold->next;
   }
   if(!n->next){
-    temp->next = NULL;
+    hold->next = NULL;
     free(n);
   }else{
-    temp->next = n->next;
+    hold->next = n->next;
     free(n);
   }
-  return hold;
+  return head;
 }
 
 // free entire list
 void free_list(struct node *n){
   struct node * temp;
   while(n){
-    temp = n->next;
-    free(n);
-    n = temp;
+    temp = n;
+    n = n->next;
+    free(temp);
   }
 }
