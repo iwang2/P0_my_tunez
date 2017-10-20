@@ -36,6 +36,6 @@ struct node * random_node(struct node *head);
 struct node * remove_node(struct node *head, struct node *n);
 
 // free entire list
-void free_list(struct node *n);
+struct node * free_list(struct node *n);
 
 int random_int(int range);

@@ -16,15 +16,16 @@ int main(){
   srand(time(NULL));
 	
   printf("\n\ntesting my_tunes!!!");
-  
+
+  printf("TESTING FOR LIST FUNCTIONS========================\n\n");
+
+  printf("print_node----------------------------------------\n");
+  printf("--> creating and printing original node formatted artist: song\n");
   struct node * head = (struct node *)malloc(sizeof(struct node));
   strcpy(head->song, "sweet caroline");
   strcpy(head->artist, "neil diamond");
-
-  printf("\n\noriginal node\n");
-  print_list(head);
-
-  printf("TESTING FOR LIST FUNCTIONS========================\n\n");
+  print_node(head);
+  printf("\n");
   
   printf("insert_ordered------------------------------------\n");
   printf("-->  inserting chandelier then hallelujah\n");
@@ -60,7 +61,7 @@ int main(){
   printf("length--------------------------------------------\n");
   printf("length of list: %d\n\n", length(head));
   
-  printf("print_list--------------------------------------------\n");
+  printf("print_list----------------------------------------\n");
   print_list(head);
 
   printf("random_node---------------------------------------\n");
@@ -72,7 +73,17 @@ int main(){
   head = remove_node(head, random);
   print_list(head);
 
-  free_list(head);
+  printf("random_int----------------------------------------\n");
+  printf("-->  printing series of random integers from 0 to 25\n");
+  for(int i = 0; i < 10; i++){
+    printf("%d  ", random_int(26));
+  }
+  printf("\n\n");
+
+  printf("free_list-----------------------------------------\n");
+  head = free_list(head);
+  print_list(head);
+  printf("printed list after freeing\n\n");
 
   printf("\nTESTING PLAYLIST FUNCTIONS=======================\n\n");
 

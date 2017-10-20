@@ -140,11 +140,12 @@ struct node * remove_node(struct node *head, struct node *n) {
 }
 
 // free entire list
-void free_list(struct node *n) {
+struct node * free_list(struct node *n) {
   struct node * temp;
   while (n) {
     temp = n;
     n = n->next;
     free(temp);
   }
+  return n;
 }
