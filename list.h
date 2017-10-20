@@ -1,3 +1,9 @@
+// Ida + Yedoh
+// Systems period 4
+// Project 0: my_tunes
+// 10/20/2017
+// list.h
+
 struct node {
   char song[256];
   char artist[256];

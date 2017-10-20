@@ -1,3 +1,9 @@
+// Ida + Yedoh
+// Systems period 4
+// Project 0: my_tunes
+// 10/20/2017
+// playlist.h
+
 // add songs
 void add(struct node *library[26], char *s, char *a);
 
@@ -15,6 +21,9 @@ void print_artist(struct node *library[26], char *a);
 
 // print entire library
 void print_all(struct node *library[26]);
+
+// returns length of playlist
+int length_playlist(struct node * library[26]);
 
 // print out series of randomly chosen songs
 void shuffle(struct node *library[26]);
