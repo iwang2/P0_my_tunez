@@ -9,6 +9,8 @@ struct node * insert_front(struct node *n, char *s, char *a);
 
 struct node * insert_ordered(struct node *n, char *s, char *a);
 
+void print_node(struct node *n);
+
 // print entire list
 void print_list(struct node *head);
 
@@ -29,3 +31,5 @@ struct node * remove_node(struct node *head, struct node *n);
 
 // free entire list
 void free_list(struct node *n);
+
+int random_int(int range);

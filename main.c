@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "list.h"
 #include "playlist.h"
 
 int main(){
+  srand(time(NULL));
+  
   struct node * head = (struct node *)malloc(sizeof(struct node));
   strcpy(head->song, "sweet caroline");
   strcpy(head->artist, "neil diamond");
@@ -53,12 +56,7 @@ int main(){
   printf("\nTESTING PLAYLIST FUNCTIONS=======================\n\n");
 
   struct node * thing[26];
-  //print_all(thing);
-  //printf("printed intitialized array\n");
-  int i;
-  
-  for(i = 0; i < 26; i++){
-    //thing[i] = (struct node *)malloc(sizeof(struct node));
+  for(int i = 0; i < 26; i++){
     thing[i] = NULL;
   }
   
@@ -93,6 +91,9 @@ int main(){
   printf("-->  deleting adele: hello\n\n");
   delete_song(thing, "adele", "hello");
   print_all(thing);
+  
+  printf("shuffle-------------------------------------------\n");
+  shuffle(thing);
 
   printf("delete_all----------------------------------------\n");
   delete_all(thing);
