@@ -20,7 +20,7 @@ void print_all(struct node *library[26]);
 void shuffle(struct node *library[26]);
 
 // delete a song
-struct node * delete_song(struct node *library[26], char *s);
+void delete_song(struct node *library[26], char *a, char *s);
 
 // delete all
-struct node * delete_all(struct node *library[26]);
+void delete_all(struct node *library[26]);

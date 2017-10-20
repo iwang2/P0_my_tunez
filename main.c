@@ -88,4 +88,14 @@ int main(){
   printf("print_artist--------------------------------------\n");
   printf("-->  printing out all of adele's songs\n");
   print_artist(thing, "adele");
+
+  printf("delete_song---------------------------------------\n");
+  printf("-->  deleting adele: hello\n\n");
+  delete_song(thing, "adele", "hello");
+  print_all(thing);
+
+  printf("delete_all----------------------------------------\n");
+  delete_all(thing);
+  print_all(thing);
+  printf("finished deleting all and printed library\n\n");
 }

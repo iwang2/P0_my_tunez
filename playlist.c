@@ -13,10 +13,7 @@ void add(struct node * library[26], char *s, char *a){
 
 // search for a song
 struct node * search_song(struct node *library[26], char *a, char *s){
-  int i = 0;
-  while (!find_song(library[i], s, a)) {
-    i++;
-  }
+  int i = a[0] - 'a';
   return find_song(library[i], s, a);
 }
 
@@ -58,21 +55,18 @@ void print_all(struct node * library[26]){
 void shuffle(struct node *library[26]){
 	
 }
-
+*/
 // delete a song
-struct node * delete_song(struct node *library[26], char *s){
-	int i = 0;
-	while (find_song(library[i], s) == NULL) {
-		i++;
-	}
-	remove_song(library[i], s);
+void delete_song(struct node *library[26], char *a, char *s){
+  int i = a[0] - 'a';
+  library[i] = remove_node(library[i], search_song(library, a, s));
 }
 
 // delete all
-struct node * delete_all(struct node * library[26]){
-	int i;
-	for (i = 0; i < 26; i++) {
-		free_list(library[i]);
-	}
+void delete_all(struct node * library[26]){
+  for (int i = 0; i < 26; i++) {
+    free_list(library[i]);
+    library[i] = NULL;
+  }
 }
-*/
+
