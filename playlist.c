@@ -58,18 +58,18 @@ void print_all(struct node * library[26]) {
 }
 
 // print out series of randomly chosen songs
-void shuffle(struct node *library[26]){
+void shuffle(struct node *library[26]) {
   int random;
   int r = 0;
-  for(int i = 0; i < 3; i++){
+  for (int i = 0; i < 3; i++) {
     random = random_int(26) + 1;
     //printf("random: %d\n", random);
-    while(random){
-      if(r == 26){
-	r = 0;
+    while (random) {
+      if (r == 26) {
+				r = 0;
       }
       if(library[r]){
-	random--;
+				random--;
       }
       r++;
     }
