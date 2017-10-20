@@ -1,3 +1,9 @@
+// Ida + Yedoh
+// Systems period 4
+// Project 0: my_tunes
+// 10/20/2017
+// list.c
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,7 +12,7 @@
 #include "list.h"
 
 // insert song_nodes in the front
-struct node * insert_front(struct node *n, char *s, char *a){
+struct node * insert_front(struct node *n, char *s, char *a) {
   struct node * new = (struct node *)malloc(sizeof(struct node));
 
   strcpy(new->song, s);
@@ -18,20 +24,20 @@ struct node * insert_front(struct node *n, char *s, char *a){
 
 // insert song node in correct order
 // returns head node
-struct node * insert_ordered(struct node *n, char *s, char *a){
+struct node * insert_ordered(struct node *n, char *s, char *a) {
   
   struct node * insert = (struct node *)malloc(sizeof(struct node));
   strcpy(insert->song, s);
   strcpy(insert->artist, a);
   insert->next = NULL;
 
-  if(!n){
+  if (!n) {
     return insert;
   }
   
-  if(strcmp(a, n->artist) < 0
+  if (strcmp(a, n->artist) < 0
      ||
-     (strcmp(a, n->artist) == 0 && strcmp(s, n->song) < 0)){
+     (strcmp(a, n->artist) == 0 && strcmp(s, n->song) < 0)) {
     insert->next = n;
     return insert;
   }
@@ -39,8 +45,8 @@ struct node * insert_ordered(struct node *n, char *s, char *a){
   struct node * head = n;
   struct node * before = (struct node *)malloc(sizeof(struct node));
   
-  while(n && (strcmp(a, n->artist) > 0 ||
-	      (strcmp(a, n->artist) == 0 && strcmp(s, n->song) > 0))){
+  while (n && (strcmp(a, n->artist) > 0 ||
+	      (strcmp(a, n->artist) == 0 && strcmp(s, n->song) > 0))) {
     before = n;
     n = n->next;
   }
@@ -52,8 +58,8 @@ struct node * insert_ordered(struct node *n, char *s, char *a){
 }
 
 // print entire list
-void print_list(struct node *head){
-  while(head){
+void print_list(struct node *head) {
+  while (head) {
     printf("%s: %s\n", head->artist, head->song);
     head = head->next;
   }
@@ -61,18 +67,26 @@ void print_list(struct node *head){
 }
 
 // find and return pointer to an individual song
-struct node * find_song(struct node *n, char *s, char *a){
-  while(n && (strcmp(n->artist, a) != 0 || strcmp(n->song, s) != 0)){
+struct node * find_song(struct node *n, char *s, char *a) {
+  while (n && (strcmp(n->artist, a) != 0 || strcmp(n->song, s) != 0)) {
     n = n->next;
   }
+  if (n != NULL)
+	  printf("Song found!\n");
+  if (n == NULL)
+	  printf("Song not found :(\n");
   return n;
 }
 
 // find and return pointer to first song of an artist
-struct node * find_artist(struct node *n, char *a){
-  while(n && strcmp(n->artist, a) != 0){
+struct node * find_artist(struct node *n, char *a) {
+  while (n && strcmp(n->artist, a) != 0) {
     n = n->next;
   }
+  if (n != NULL)
+	  printf("Artist found!\n");
+  if (n == NULL)
+	  printf("Artist not found :(\n");
   return n;
 }
 
@@ -87,7 +101,7 @@ int length(struct node *n) {
 }
 
 // pointer to random element in list
-struct node * random_node(struct node *head){
+struct node * random_node(struct node *head) {
   srand(time(NULL));
   int i = rand() / (RAND_MAX / length(head) + 1);
   while (i) {
@@ -98,21 +112,20 @@ struct node * random_node(struct node *head){
 }
 
 // remove single node from the list
-struct node * remove_node(struct node *head, struct node *n){
-  if(head == n){
+struct node * remove_node(struct node *head, struct node *n) {
+  if (head == n) {
     head = head->next;
     free(n);
     return head;
   }
-  
   struct node *hold = head;
-  while(hold->next != n){
+  while (hold->next != n) {
     hold = hold->next;
   }
-  if(!n->next){
+  if (!n->next) {
     hold->next = NULL;
     free(n);
-  }else{
+  } else {
     hold->next = n->next;
     free(n);
   }
@@ -120,9 +133,9 @@ struct node * remove_node(struct node *head, struct node *n){
 }
 
 // free entire list
-void free_list(struct node *n){
+void free_list(struct node *n) {
   struct node * temp;
-  while(n){
+  while (n) {
     temp = n;
     n = n->next;
     free(temp);
