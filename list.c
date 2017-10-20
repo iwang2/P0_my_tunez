@@ -57,12 +57,14 @@ struct node * insert_ordered(struct node *n, char *s, char *a) {
   return head;
 }
 
-void print_node(struct node *n){
+// print single node
+void print_node(struct node *n) {
   printf("%s: %s\n", n->artist, n->song);
 }
+
 // print entire list
-void print_list(struct node *head){
-  while(head){
+void print_list(struct node *head) {
+  while (head) {
     print_node(head);
     head = head->next;
   }
@@ -103,13 +105,13 @@ int length(struct node *n) {
   return len;
 }
 
-int random_int(int range){
+int random_int(int range) {
   //srand(time(NULL));
   return rand() / (RAND_MAX / range + 1);
 }
 
 // pointer to random element in list
-struct node * random_node(struct node *head){
+struct node * random_node(struct node *head) {
   int i = random_int(length(head));
   while (i) {
     head = head->next;
